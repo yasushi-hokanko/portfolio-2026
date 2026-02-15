@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: https://fonts.googleapis.com https://fonts.gstatic.com;">
+    <title>YASUSHI Thumbnail Portfolio</title>
+    <meta name="description" content="Click Rate Optimization & Professional Design. YASUSHI's Thumbnail Portfolio.">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts: Noto Sans JP (Japanese) & Oswald (English headings) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Oswald:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="data:,">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="logo">YASUSHI PORTFOLIO</div>
+        <nav>
+            <ul>
+                <li><a href="#gallery">WORKS</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="https://twitter.com/messages/compose?recipient_id=YOUR_X_ID" target="_blank"
+                        class="btn-nav">CONTACT (X)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>一瞬で奪う、視線。<br><span class="en-sub">Capturing eyes in an instant.</span></h1>
+            <p>Reboot 60: 人生の経験値が、表現の深みになる。</p>
+            <a href="#gallery" class="btn-hero">View Works</a>
+        </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section id="gallery" class="gallery-section">
+        <h2>WORKS</h2>
+        <p class="section-desc">クリックして拡大表示 / Click to expand</p>
+
+        <div class="gallery-grid">
+
+            <!-- === [TEMPLATE START] COPY FROM HERE === -->
+            <!-- 
+            <div class="gallery-item">
+                <a href="#img-01">
+                    <img src="images/thumbnail_01.jpg" alt="YouTube Thumbnail 01">
+                </a>
+                <div class="lightbox" id="img-01">
+                    <a href="#gallery" class="close-btn">×</a>
+                    <div class="lightbox-content">
+                        <img src="images/thumbnail_01.jpg" alt="YouTube Thumbnail 01">
+                        <div class="caption">
+                            <h3>案件名: 〇〇チャンネル様</h3>
+                            <p>工夫点: 文字の視認性と配色のコントラストを意識しました。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            -->
+            <!-- === [TEMPLATE END] COPY TO HERE === -->
+
+            <!-- Sample Item 1 (Placeholder) -->
+            <div class="gallery-item">
+                <a href="#img-sample1">
+                    <div class="placeholder-img" style="background: linear-gradient(45deg, #ff00cc, #333399);">SAMPLE 1
+                    </div>
+                </a>
+                <!-- Lightbox Overlay -->
+                <div class="lightbox" id="img-sample1">
+                    <a href="#gallery" class="close-btn">×</a> <!-- Clicking background or X closes it -->
+                    <div class="lightbox-content">
+                        <div class="placeholder-img-large"
+                            style="background: linear-gradient(45deg, #ff00cc, #333399);">SAMPLE 1</div>
+                        <div class="caption">
+                            <h3>Sample Work 01</h3>
+                            <p>This is a placeholder. Replace with actual image.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sample Item 2 (Placeholder) -->
+            <div class="gallery-item">
+                <a href="#img-sample2">
+                    <div class="placeholder-img" style="background: linear-gradient(135deg, #f1c40f, #e74c3c);">SAMPLE 2
+                    </div>
+                </a>
+                <div class="lightbox" id="img-sample2">
+                    <a href="#gallery" class="close-btn">×</a>
+                    <div class="lightbox-content">
+                        <div class="placeholder-img-large"
+                            style="background: linear-gradient(135deg, #f1c40f, #e74c3c);">SAMPLE 2</div>
+                        <div class="caption">
+                            <h3>Sample Work 02</h3>
+                            <p>Vivid colors to attract attention.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sample Item 3 (Placeholder) -->
+            <div class="gallery-item">
+                <a href="#img-sample3">
+                    <div class="placeholder-img" style="background: linear-gradient(to right, #00b09b, #96c93d);">SAMPLE
+                        3</div>
+                </a>
+                <div class="lightbox" id="img-sample3">
+                    <a href="#gallery" class="close-btn">×</a>
+                    <div class="lightbox-content">
+                        <div class="placeholder-img-large"
+                            style="background: linear-gradient(to right, #00b09b, #96c93d);">SAMPLE 3</div>
+                        <div class="caption">
+                            <h3>Sample Work 03</h3>
+                            <p>Clean and professional business style.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="about-section">
+        <div class="about-container">
+            <div class="about-text">
+                <h2>ABOUT ME</h2>
+                <h3>YASUSHI</h3>
+                <p class="role">Reboot 60 / Content Creator</p>
+                <p>
+                    60歳からの再起動（Reboot）。<br>
+                    人生経験という「厚み」と、AIという「翼」を掛け合わせ、<br>
+                    クライアント様の想像を超えるクリエイティブを提供します。<br>
+                    特にCTR（クリック率）にこだわったサムネイル制作が得意です。
+                </p>
+                <div class="skills">
+                    <span>Photoshop</span>
+                    <span>AI Art</span>
+                    <span>Copywriting</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Contact: <a href="https://twitter.com/messages/compose?recipient_id=YOUR_X_ID" target="_blank">X (Twitter)
+                DM</a></p>
+        <p class="copyright">&copy; 2026 YASUSHI Thumbnail Portfolio. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

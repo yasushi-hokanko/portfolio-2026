@@ -1,0 +1,360 @@
+/* 
+  YASUSHI Thumbnail Portfolio - Style Sheet
+  Theme: Vivid & Professional (Dark Mode)
+*/
+
+/* --- 1. Variables & Reset --- */
+:root {
+    --bg-color: #1a1a1a;       /* Matte Black */
+    --text-color: #ffffff;     /* White */
+    --accent-color: #FFFF00;   /* Electric Yellow */
+    --accent-hover: #e6e600;
+    --gray-text: #cccccc;
+    --overlay-bg: rgba(0, 0, 0, 0.9);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s;
+}
+
+ul {
+    list-style: none;
+}
+
+/* --- 2. Header --- */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    position: sticky;
+    top: 0;
+    background-color: rgba(26, 26, 26, 0.95); /* Slight transparency */
+    backdrop-filter: blur(5px);
+    z-index: 100;
+    border-bottom: 1px solid #333;
+}
+
+.logo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.site-header nav ul {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.site-header nav a {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.site-header nav a:hover {
+    color: var(--accent-color);
+}
+
+.btn-nav {
+    border: 1px solid var(--text-color);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+.btn-nav:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color) !important;
+}
+
+/* --- 3. Hero Section --- */
+.hero {
+    height: 80vh; /* 80% of viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient(circle at center, #333333 0%, #1a1a1a 70%);
+    padding: 2rem;
+}
+
+.hero h1 {
+    font-size: 3rem; /* Mobile default */
+    font-family: 'Noto Sans JP', sans-serif;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.en-sub {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.hero p {
+    font-size: 1rem;
+    color: var(--gray-text);
+    margin-bottom: 2rem;
+}
+
+.btn-hero {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background-color: var(--accent-color);
+    color: #000;
+    font-weight: 700;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-hero:hover {
+    background-color: var(--accent-hover);
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* --- 4. Gallery Section --- */
+.gallery-section {
+    padding: 4rem 5%;
+}
+
+.gallery-section h2, .about-section h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.section-desc {
+    text-align: center;
+    color: var(--gray-text);
+    margin-bottom: 3rem;
+    font-size: 0.9rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive Grid */
+    gap: 1.5rem;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px); /* Lift up effect */
+}
+
+.gallery-item img, .placeholder-img {
+    width: 100%;
+    height: 200px; /* Fixed height for uniformity */
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.3s;
+}
+
+.gallery-item:hover img, .gallery-item:hover .placeholder-img {
+    opacity: 0.8;
+}
+
+/* Placeholder Style (Remove when using real images) */
+.placeholder-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* --- 5. CSS Lightbox (magic!) --- */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--overlay-bg);
+    display: flex; /* Centering */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    
+    /* Default: Hidden */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/* When ID matches URL hash (Clicked) -> Show */
+.lightbox:target {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    background: #2a2a2a;
+    padding: 1rem;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    text-align: center;
+}
+
+.close-btn {
+    position: absolute;
+    top: 0;
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    /* Close matches the entire background overlay, 
+       but we want a visible X button too. 
+       Actually, standard UX: click outside to close (the parent .lightbox link),
+       or click an explicit X button.
+       Simplification: The 'lightbox' div covers full screen.
+       We need a link that covers the background to close it.
+       Or just a close button.
+    */
+    cursor: default; /* Background area */
+}
+
+/* Specific close button inside */
+.lightbox .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    color: white;
+    font-size: 2rem;
+    text-decoration: none;
+    z-index: 1001;
+    /* Reset from full coverage to button */
+    left: auto;
+    bottom: auto;
+    cursor: pointer;
+}
+
+.lightbox img, .placeholder-img-large {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.placeholder-img-large {
+    width: 800px; /* Max width constraint */
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    margin: 0 auto;
+}
+
+.caption {
+    margin-top: 1rem;
+    color: var(--text-color);
+    text-align: left;
+}
+
+.caption h3 {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+/* --- 6. About Section --- */
+.about-section {
+    padding: 4rem 5%;
+    background-color: #222; /* Slightly lighter bg */
+    text-align: center;
+}
+
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.role {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+}
+
+.skills {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.skills span {
+    border: 1px solid var(--gray-text);
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+/* --- 7. Footer --- */
+footer {
+    padding: 3rem 5%;
+    text-align: center;
+    border-top: 1px solid #333;
+    font-size: 0.9rem;
+    color: var(--gray-text);
+}
+
+footer a {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* --- 8. Responsive Design (Mobile) --- */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .en-sub {
+        font-size: 1rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+    }
+    
+    .site-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
